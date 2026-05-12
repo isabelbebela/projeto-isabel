@@ -87,3 +87,6 @@ body {
 <button class="botao">Criar projetos em Javascript</button>
 <button class="botao">Criar um portfolio</button>
 <button class="botao">Atualizar meu currículo</button>
+.abas-textos {
+  background-color: var(--texto-fundo);
+}
