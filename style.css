@@ -130,3 +130,19 @@ body{
     padding: 24px;
     font-size: 24px;
 }
+.parametro-senha__texto{
+    padding: 24px;
+}
+.parametro-senha__texto{
+   padding: 24px;
+   border-top: 2px solid var(--borda);
+   border-bottom: 2px solid var(--borda);
+   margin: 0;
+}
+.parametro-senha__texto{
+    padding: 24px;
+    border-top: 2px solid var(--borda);
+    border-bottom: 2px solid var(--borda);
+    margin: 0;
+    font-size: 24px;
+}
