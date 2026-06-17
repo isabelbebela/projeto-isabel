@@ -146,3 +146,11 @@ body{
     margin: 0;
     font-size: 24px;
 }
+.parametro-senha__botao{
+    background-color: var(--fundo-texto);
+    color: var(--branco);
+    border: 2px solid var(--borda);
+    padding: 24px;
+    font-size: 24px;
+    cursor: pointer;
+}
