@@ -174,3 +174,64 @@ label{
     height: 20px;
     cursor: pointer;
 }
+.barra {
+  background-color: var(--fundo-senha);
+}
+.barra{
+    background-color: var(--fundo-senha);
+    height: 30px;
+    width: 100%;
+}
+.fraca{
+    height: 30px;
+    width: 25%;
+    background-color: #E71B32; 
+}
+.fraca{
+    height: 30px;
+    width: 25%;
+    background-color: #E71B32;
+    position: relative;
+}
+.fraca{
+    height: 30px;
+    width: 25%;
+    background-color: #E71B32;
+    position: relative;
+    bottom: 30px;
+}
+.parametro-senha-textos {
+    display: flex;
+    justify-content: space-between;
+}
+.media{
+    height: 30px;
+    width: 50%;
+    background-color: #FAF408;
+    position: relative;
+    bottom: 30px;
+}
+.forte{
+    height: 30px;
+    width: 100%;
+    background-color: #00FF85;
+    position: relative;
+    bottom: 30px;
+}
+.forca{
+    height: 30px;
+    position: relative;
+    bottom: 30px;
+}
+.fraca{
+    width: 25%;
+    background-color: #E71B32; 
+}
+.media{
+    background-color: #FAF408;
+    width: 50%;
+}
+.forte{
+    background-color: #00FF85;
+    width: 100%;
+}
