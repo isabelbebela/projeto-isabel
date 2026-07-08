@@ -251,3 +251,30 @@ font-size:30px;
 }
 
 }
+.coluna:last-child{
+    min-width:250px;
+}
+.senha-box input{
+
+    width:100%;
+    padding:18px;
+
+    background:#0B2B5A;
+    color:#fff;
+
+    border:none;
+    border-bottom:4px solid #0077ff;
+
+    font-size:30px;
+    letter-spacing:2px;
+}
+.legenda{
+
+    display:flex;
+    justify-content:space-between;
+    margin-top:12px;
+
+    color:white;
+    font-size:18px;
+
+}
