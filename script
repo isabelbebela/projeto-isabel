@@ -1,0 +1,65 @@
+const campoSenha = document.getElementById("campo-senha");
+const barra = document.querySelector(".nivel");
+
+
+campoSenha.addEventListener("input", function(){
+
+    let senha = campoSenha.value;
+
+    let pontos = 0;
+
+
+    // quantidade de caracteres
+    if(senha.length >= 8){
+        pontos++;
+    }
+
+
+    // letra maiúscula
+    if(/[A-Z]/.test(senha)){
+        pontos++;
+    }
+
+
+    // letra minúscula
+    if(/[a-z]/.test(senha)){
+        pontos++;
+    }
+
+
+    // número
+    if(/[0-9]/.test(senha)){
+        pontos++;
+    }
+
+
+    // símbolo
+    if(/[^A-Za-z0-9]/.test(senha)){
+        pontos++;
+    }
+
+
+
+    // muda a barra de cor
+
+    if(pontos <= 2){
+
+        barra.style.width = "33%";
+        barra.style.background = "#ff2346";
+
+    } 
+    else if(pontos <= 4){
+
+        barra.style.width = "66%";
+        barra.style.background = "#ffc107";
+
+    } 
+    else {
+
+        barra.style.width = "100%";
+        barra.style.background = "#22c55e";
+
+    }
+
+
+});
