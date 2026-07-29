@@ -1,5 +1,3 @@
-// ELEMENTOS DA PÁGINA
-
 const campoSenha = document.getElementById("campo-senha");
 
 const quantidade = document.getElementById("quantidade");
@@ -14,12 +12,8 @@ const simbolos = document.getElementById("simbolos");
 const nivel = document.getElementById("nivel");
 
 
-// TAMANHO INICIAL DA SENHA
-
 let tamanho = 12;
 
-
-// LISTA DE CARACTERES
 
 const letrasMaiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const letrasMinusculas = "abcdefghijklmnopqrstuvwxyz";
@@ -27,7 +21,8 @@ const listaNumeros = "0123456789";
 const listaSimbolos = "!@#$%&*()-_=+[]{}<>?/";
 
 
-// ATUALIZA O NÚMERO DE CARACTERES
+
+// MOSTRAR QUANTIDADE
 
 function atualizarQuantidade(){
 
@@ -36,11 +31,13 @@ function atualizarQuantidade(){
 }
 
 
+
 // GERAR SENHA
 
 function gerarSenha(){
 
     let caracteres = "";
+
 
     if(maiusculas.checked){
         caracteres += letrasMaiusculas;
@@ -59,13 +56,15 @@ function gerarSenha(){
     }
 
 
-    if(caracteres === ""){
+    if(caracteres.length === 0){
 
         campoSenha.value = "";
-        atualizarForca(0);
+        atualizarForca();
+
         return;
 
     }
+
 
 
     let senha = "";
@@ -73,9 +72,9 @@ function gerarSenha(){
 
     for(let i = 0; i < tamanho; i++){
 
-        let numero = Math.floor(Math.random() * caracteres.length);
+        let aleatorio = Math.floor(Math.random() * caracteres.length);
 
-        senha += caracteres[numero];
+        senha += caracteres[aleatorio];
 
     }
 
@@ -83,87 +82,67 @@ function gerarSenha(){
     campoSenha.value = senha;
 
 
-    calcularForca();
+    atualizarForca();
 
 }
 
 
 
-// CALCULAR FORÇA DA SENHA
 
-function calcularForca(){
+// FORÇA DA SENHA
 
-    let pontos = 0;
-
-
-    // tamanho
-
-    if(tamanho >= 8){
-        pontos += 2;
-    }
-
-    if(tamanho >= 12){
-        pontos += 2;
-    }
+function atualizarForca(){
 
 
-    // tipos de caracteres
+    let tipos = 0;
+
 
     if(maiusculas.checked){
-        pontos++;
+        tipos++;
     }
 
     if(minusculas.checked){
-        pontos++;
+        tipos++;
     }
 
     if(numeros.checked){
-        pontos++;
+        tipos++;
     }
 
     if(simbolos.checked){
-        pontos++;
+        tipos++;
     }
 
 
-    atualizarForca(pontos);
 
-}
+    // FORTE
+
+    if(tamanho >= 12 && tipos >= 3){
+
+        nivel.style.width = "100%";
+        nivel.style.background = "#22c55e";
+
+    }
 
 
+    // MÉDIA
 
-// ALTERAR BARRA DE FORÇA
+    else if(tamanho >= 8 && tipos >= 2){
 
-function atualizarForca(pontos){
+        nivel.style.width = "66%";
+        nivel.style.background = "#ffc107";
+
+    }
 
 
-    if(pontos <= 3){
+    // FRACA
+
+    else{
 
         nivel.style.width = "33%";
         nivel.style.background = "#ff2346";
 
     }
-
-
-    else if(pontos <= 6){
-
-
-        nivel.style.width = "66%";
-        nivel.style.background = "#ffc107";
-
-
-    }
-
-
-    else{
-
-
-        nivel.style.width = "100%";
-        nivel.style.background = "#22c55e";
-
-
-    }
-
 
 }
 
@@ -209,12 +188,14 @@ diminuir.addEventListener("click", function(){
 
 
 
-// ALTERAÇÃO DOS CHECKBOX
+
+// CHECKBOX
 
 maiusculas.addEventListener("change", gerarSenha);
 minusculas.addEventListener("change", gerarSenha);
 numeros.addEventListener("change", gerarSenha);
 simbolos.addEventListener("change", gerarSenha);
+
 
 
 
