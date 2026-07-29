@@ -2,245 +2,110 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Gerador de Senhas</title>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
+    <div class="container">
 
-<div class="container">
+        <img src="img/cadeado.png" alt="Cadeado">
 
+        <h1>Gerador de Senhas</h1>
 
-    <img src="img/cadeado.png" alt="Cadeado">
+        <p>Gere instantaneamente uma senha aleatória e segura</p>
 
+        <!-- Campo da senha -->
+        <div class="senha-box">
 
-    <h1>Gerador de senhas</h1>
+            <label for="campo-senha">Senha</label>
 
+            <input
+                type="text"
+                id="campo-senha"
+                placeholder="Digite sua senha"
+                readonly>
 
-    <p>
-        Gere instantaneamente uma senha aleatória e segura
-    </p>
+        </div>
 
+        <!-- Configurações -->
+        <section class="configuracoes">
 
+            <h2>Personalize sua senha</h2>
 
-    <!-- CAMPO DA SENHA -->
+            <div class="conteudo">
 
-    <div class="senha-box">
+                <!-- Número de caracteres -->
+                <div class="coluna">
 
-        <label for="campo-senha">
-            Senha
-        </label>
+                    <h3>Número de caracteres</h3>
 
+                    <div class="contador">
 
-        <input
-            type="text"
-            id="campo-senha"
-            placeholder="Digite sua senha">
+                        <button id="diminuir">-</button>
 
+                        <span id="quantidade">12</span>
 
-    </div>
-
-
-
-
-    <!-- CONFIGURAÇÕES -->
-
-    <section class="configuracoes">
-
-
-        <h2>
-            Personalize sua senha
-        </h2>
-
-
-
-        <div class="conteudo">
-
-
-
-            <!-- QUANTIDADE -->
-
-            <div class="coluna">
-
-
-                <h3>
-                    Número de caracteres
-                </h3>
-
-
-
-                <div class="contador">
-
-
-                    <button>
-                        -
-                    </button>
-
-
-                    <span>
-                        12
-                    </span>
-
-
-                    <button>
-                        +
-                    </button>
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-            <!-- CARACTERÍSTICAS -->
-
-            <div class="coluna">
-
-
-                <h3>
-                    Características da senha
-                </h3>
-
-
-
-                <label>
-
-                    <input type="checkbox">
-
-                    Letras maiúsculas
-
-                </label>
-
-
-
-                <label>
-
-                    <input type="checkbox">
-
-                    Letras minúsculas
-
-                </label>
-
-
-
-                <label>
-
-                    <input type="checkbox">
-
-                    Números
-
-                </label>
-
-
-
-                <label>
-
-                    <input type="checkbox">
-
-                    Símbolos
-
-                </label>
-
-
-            </div>
-
-
-
-
-
-
-            <!-- FORÇA -->
-
-            <div class="coluna">
-
-
-                <h3>
-                    Força da senha
-                </h3>
-
-
-
-
-                <div class="barra">
-
-
-                    <div class="nivel">
+                        <button id="aumentar">+</button>
 
                     </div>
 
+                </div>
+
+                <!-- Características -->
+                <div class="coluna">
+
+                    <h3>Características da senha</h3>
+
+                    <label>
+                        <input type="checkbox" id="maiusculas" checked>
+                        Letras maiúsculas
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="minusculas" checked>
+                        Letras minúsculas
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="numeros" checked>
+                        Números
+                    </label>
+
+                    <label>
+                        <input type="checkbox" id="simbolos">
+                        Símbolos
+                    </label>
 
                 </div>
 
+                <!-- Força da senha -->
+                <div class="coluna">
 
+                    <h3>Força da senha</h3>
 
+                    <div class="barra">
+                        <div class="nivel" id="nivel"></div>
+                    </div>
 
-
-                <div class="legenda">
-
-
-                    <span>
-                        Fraca
-                    </span>
-
-
-                    <span>
-                        Média
-                    </span>
-
-
-                    <span>
-                        Forte
-                    </span>
-
-
+                    <div class="legenda">
+                        <span>Fraca</span>
+                        <span>Média</span>
+                        <span>Forte</span>
+                    </div>
 
                 </div>
 
-
-
             </div>
 
+        </section>
 
+    </div>
 
-
-        </div>
-
-
-
-    </section>
-
-
-
-</div>
-
-
-
-</body>
-
-</html>
-            </div>
-
-        </div>
-
-    </section>
-
-
-</div>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
