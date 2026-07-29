@@ -1,5 +1,7 @@
-// Elementos
+// ELEMENTOS DA PÁGINA
+
 const campoSenha = document.getElementById("campo-senha");
+
 const quantidade = document.getElementById("quantidade");
 const aumentar = document.getElementById("aumentar");
 const diminuir = document.getElementById("diminuir");
@@ -11,113 +13,213 @@ const simbolos = document.getElementById("simbolos");
 
 const nivel = document.getElementById("nivel");
 
-// Quantidade inicial
+
+// TAMANHO INICIAL DA SENHA
+
 let tamanho = 12;
 
-// Caracteres
+
+// LISTA DE CARACTERES
+
 const letrasMaiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const letrasMinusculas = "abcdefghijklmnopqrstuvwxyz";
-const numerosLista = "0123456789";
-const simbolosLista = "!@#$%&*()-_=+[]{}<>?/";
+const listaNumeros = "0123456789";
+const listaSimbolos = "!@#$%&*()-_=+[]{}<>?/";
 
-// Atualiza quantidade na tela
-function atualizarQuantidade() {
+
+// ATUALIZA O NÚMERO DE CARACTERES
+
+function atualizarQuantidade(){
+
     quantidade.textContent = tamanho;
+
 }
 
-// Gera senha
-function gerarSenha() {
+
+// GERAR SENHA
+
+function gerarSenha(){
 
     let caracteres = "";
 
-    if (maiusculas.checked) caracteres += letrasMaiusculas;
-    if (minusculas.checked) caracteres += letrasMinusculas;
-    if (numeros.checked) caracteres += numerosLista;
-    if (simbolos.checked) caracteres += simbolosLista;
+    if(maiusculas.checked){
+        caracteres += letrasMaiusculas;
+    }
 
-    if (caracteres === "") {
+    if(minusculas.checked){
+        caracteres += letrasMinusculas;
+    }
+
+    if(numeros.checked){
+        caracteres += listaNumeros;
+    }
+
+    if(simbolos.checked){
+        caracteres += listaSimbolos;
+    }
+
+
+    if(caracteres === ""){
+
         campoSenha.value = "";
         atualizarForca(0);
         return;
+
     }
+
 
     let senha = "";
 
-    for (let i = 0; i < tamanho; i++) {
-        const indice = Math.floor(Math.random() * caracteres.length);
-        senha += caracteres[indice];
+
+    for(let i = 0; i < tamanho; i++){
+
+        let numero = Math.floor(Math.random() * caracteres.length);
+
+        senha += caracteres[numero];
+
     }
+
 
     campoSenha.value = senha;
 
+
     calcularForca();
+
 }
 
-// Calcula força
-function calcularForca() {
+
+
+// CALCULAR FORÇA DA SENHA
+
+function calcularForca(){
 
     let pontos = 0;
 
-    if (tamanho >= 8) pontos++;
-    if (tamanho >= 12) pontos++;
 
-    let tipos = 0;
+    // tamanho
 
-    if (maiusculas.checked) tipos++;
-    if (minusculas.checked) tipos++;
-    if (numeros.checked) tipos++;
-    if (simbolos.checked) tipos++;
+    if(tamanho >= 8){
+        pontos += 2;
+    }
 
-    pontos += tipos;
+    if(tamanho >= 12){
+        pontos += 2;
+    }
+
+
+    // tipos de caracteres
+
+    if(maiusculas.checked){
+        pontos++;
+    }
+
+    if(minusculas.checked){
+        pontos++;
+    }
+
+    if(numeros.checked){
+        pontos++;
+    }
+
+    if(simbolos.checked){
+        pontos++;
+    }
+
 
     atualizarForca(pontos);
+
 }
 
-// Atualiza barra
-function atualizarForca(pontos) {
 
-    if (pontos <= 3) {
+
+// ALTERAR BARRA DE FORÇA
+
+function atualizarForca(pontos){
+
+
+    if(pontos <= 3){
+
         nivel.style.width = "33%";
         nivel.style.background = "#ff2346";
+
     }
-    else if (pontos <= 5) {
+
+
+    else if(pontos <= 6){
+
+
         nivel.style.width = "66%";
         nivel.style.background = "#ffc107";
+
+
     }
-    else {
+
+
+    else{
+
+
         nivel.style.width = "100%";
         nivel.style.background = "#22c55e";
+
+
     }
+
 
 }
 
-// Botão +
-aumentar.addEventListener("click", () => {
 
-    if (tamanho < 30) {
+
+// BOTÃO +
+
+aumentar.addEventListener("click", function(){
+
+
+    if(tamanho < 30){
+
         tamanho++;
+
         atualizarQuantidade();
+
         gerarSenha();
+
     }
+
 
 });
 
-// Botão -
-diminuir.addEventListener("click", () => {
 
-    if (tamanho > 4) {
+
+// BOTÃO -
+
+diminuir.addEventListener("click", function(){
+
+
+    if(tamanho > 4){
+
         tamanho--;
+
         atualizarQuantidade();
+
         gerarSenha();
+
     }
 
+
 });
 
-// Checkboxes
-[maiusculas, minusculas, numeros, simbolos].forEach(item => {
-    item.addEventListener("change", gerarSenha);
-});
 
-// Iniciar
+
+// ALTERAÇÃO DOS CHECKBOX
+
+maiusculas.addEventListener("change", gerarSenha);
+minusculas.addEventListener("change", gerarSenha);
+numeros.addEventListener("change", gerarSenha);
+simbolos.addEventListener("change", gerarSenha);
+
+
+
+// INICIAR
+
 atualizarQuantidade();
+
 gerarSenha();
